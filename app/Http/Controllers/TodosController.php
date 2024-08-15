@@ -23,7 +23,8 @@ class TodosController extends Controller
 
     public function store(StoreTodoRequest $request) {
         $todo = Todo::create([
-            ...$request->all(), 
+            "todo"  => $request->all()["todo"],
+            
             "is_completed" => false
         ]);
 
