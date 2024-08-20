@@ -12,7 +12,7 @@ class TodosController extends Controller
 {
     public function index(Request $request) {
         $filter = $request->query('filter');
-        $todos = Todo::orderBy('created_at','desc')->where('todo', 'like', '%' . $filter . '%')->get();
+        $todos = Todo::orderBy('created_at','desc')->where('todo', 'ilike', '%' . $filter . '%')->get();
 
         return response()->json([
             "success" => "true",
